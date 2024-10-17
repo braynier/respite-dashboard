@@ -8,13 +8,13 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-supabase.js
 Uploader.jsx
 data-bookings.js
 data-cabins.js
 data-guests.js
 dist
 dist-ssr
+.env
 *.local
 
 # Editor directories and files
