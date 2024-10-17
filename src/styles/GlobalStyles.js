@@ -177,11 +177,21 @@ h6 {
   hyphens: auto;
 }
 
+.hidden-helper {
+  
+}
+
 img {
   max-width: 100%;
 
   /* For dark mode */
   filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
+}
+
+@media (max-width: 500px) {
+  .hidden-helper {
+    display: none;
+  }
 }
 `;
 

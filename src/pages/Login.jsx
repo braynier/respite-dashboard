@@ -3,6 +3,7 @@ import styled from "styled-components";
 import LoginForm from "../features/authentication/LoginForm";
 import Logo from "../ui/Logo";
 import Heading from "../ui/Heading";
+import Notice from "../ui/Notice";
 
 const LoginLayout = styled.main`
   min-height: 100vh;
@@ -12,6 +13,11 @@ const LoginLayout = styled.main`
   justify-content: center;
   gap: 3.2rem;
   background-color: var(--color-grey-50);
+
+  @media (max-width: 500px) {
+    grid-template-columns: 30rem;
+    gap: 2.4rem;
+  }
 `;
 
 function Login() {
@@ -19,6 +25,9 @@ function Login() {
     <LoginLayout>
       <Logo />
       <Heading as="h4">Log in to your account</Heading>
+      <Notice>
+        Credentials for testing: <br /> kate@yahoo.com <br /> test1234
+      </Notice>
       <LoginForm />
     </LoginLayout>
   );

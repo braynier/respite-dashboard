@@ -5,13 +5,25 @@ import {
   HiOutlineHome,
   HiOutlineHomeModern,
   HiOutlineUsers,
+  HiBars3,
+  HiXMark,
 } from "react-icons/hi2";
 import styled from "styled-components";
+import { useState } from "react";
 
 const NavList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+
+  @media (max-width: 1180px) {
+    display: flex;
+    flex-direction: row;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -53,7 +65,59 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
+const HamburgerButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.6rem;
+  border-radius: var(--border-radius-sm);
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: var(--color-grey-100);
+  }
+
+  & svg {
+    width: 2.2rem;
+    height: 2.2rem;
+    color: var(--color-brand-600);
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
+const HamburgerMenu = styled.div`
+  display: none;
+  position: fixed;
+  top: 10vh;
+  right: 0;
+  width: 30vw;
+  height: 50vh;
+  border: 1px solid var(--color-grey-100);
+  background-color: var(--color-grey-0);
+  padding: 3.2rem 2.4rem;
+
+  & ul {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+  @media (max-width: 650px) {
+    width: 100%;
+  }
+`;
+
 function MainNav() {
+  const [isOpen, setIsopen] = useState(false);
+
+  function handleToggle() {
+    setIsopen(!isOpen);
+  }
+
   return (
     <nav>
       <NavList>
@@ -84,6 +148,42 @@ function MainNav() {
           </StyledNavLink>
         </li>
       </NavList>
+
+      <HamburgerButton onClick={handleToggle}>
+        {isOpen ? <HiXMark /> : <HiBars3 />}
+      </HamburgerButton>
+      {isOpen && (
+        <HamburgerMenu>
+          <NavList>
+            <li>
+              <StyledNavLink to="/dashboard">
+                <HiOutlineHome />
+                <span>Home</span>
+              </StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/bookings">
+                <HiOutlineCalendarDays /> Bookings
+              </StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/cabins">
+                <HiOutlineHomeModern /> Cabins
+              </StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/users">
+                <HiOutlineUsers /> Users
+              </StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/settings">
+                <HiOutlineCog6Tooth /> Settings
+              </StyledNavLink>
+            </li>
+          </NavList>
+        </HamburgerMenu>
+      )}
     </nav>
   );
 }

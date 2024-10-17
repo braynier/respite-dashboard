@@ -3,7 +3,6 @@ import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
-import { signUp } from "../../services/apiAuth";
 import { useSignUp } from "./useSignUp";
 
 // Email regex: /\S+@\S+\.\S+/

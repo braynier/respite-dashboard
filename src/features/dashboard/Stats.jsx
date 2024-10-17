@@ -5,6 +5,7 @@ import {
 } from "react-icons/hi2";
 import Stat from "./Stat";
 import { formatCurrency } from "../../utils/helpers";
+import Row from "../../ui/Row";
 
 function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
   // 1.
@@ -22,7 +23,7 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
     (numDays * cabinCount);
 
   return (
-    <>
+    <Row type="grid">
       <Stat
         title="Bookings"
         color="blue"
@@ -42,12 +43,12 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
         value={checkins}
       />
       <Stat
-        title="Occupancy rate"
+        title="Occupancy"
         color="yellow"
         icon={<HiOutlineBriefcase />}
         value={Math.round(occupancy * 100) + "%"}
       />
-    </>
+    </Row>
   );
 }
 

@@ -16,6 +16,14 @@ const CommonRow = styled.div`
   column-gap: 2.4rem;
   align-items: center;
   transition: none;
+
+  @media (max-width: 768px) {
+    column-gap: 0.4rem;
+  }
+
+  @media (max-width: 650px) {
+    grid-template-columns: ${(props) => props.columnsMobile};
+  }
 `;
 
 const StyledHeader = styled(CommonRow)`
@@ -27,6 +35,10 @@ const StyledHeader = styled(CommonRow)`
   letter-spacing: 0.4px;
   font-weight: 600;
   color: var(--color-grey-600);
+
+  @media (max-width: 768px) {
+    padding: 1.2rem 1.6rem;
+  }
 `;
 
 const StyledRow = styled(CommonRow)`
@@ -34,6 +46,10 @@ const StyledRow = styled(CommonRow)`
 
   &:not(:last-child) {
     border-bottom: 1px solid var(--color-grey-100);
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.2rem 1.6rem;
   }
 `;
 
@@ -62,29 +78,34 @@ const Empty = styled.p`
 
 const TableContext = createContext();
 
-function Table({ children, columns }) {
+function Table({ children, columns, columnsMobile }) {
   return (
-    <TableContext.Provider value={{ columns }}>
+    <TableContext.Provider value={{ columns, columnsMobile }}>
       <StyledTable role="table">{children}</StyledTable>
     </TableContext.Provider>
   );
 }
 
 function Header({ children }) {
-  const { columns } = useContext(TableContext);
+  const { columns, columnsMobile } = useContext(TableContext);
 
   return (
-    <StyledHeader role="row" columns={columns} as="header">
+    <StyledHeader
+      role="row"
+      columns={columns}
+      columnsMobile={columnsMobile}
+      as="header"
+    >
       {children}
     </StyledHeader>
   );
 }
 
 function Row({ children }) {
-  const { columns } = useContext(TableContext);
+  const { columns, columnsMobile } = useContext(TableContext);
 
   return (
-    <StyledRow role="row" columns={columns}>
+    <StyledRow role="row" columns={columns} columnsMobile={columnsMobile}>
       {children}
     </StyledRow>
   );

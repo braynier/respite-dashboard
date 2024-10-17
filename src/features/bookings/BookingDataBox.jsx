@@ -49,6 +49,10 @@ const Header = styled.header`
     font-size: 2rem;
     margin-left: 4px;
   }
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+  }
 `;
 
 const Section = styled.section`
@@ -65,6 +69,10 @@ const Guest = styled.div`
   & p:first-of-type {
     font-weight: 500;
     color: var(--color-grey-700);
+  }
+
+  @media (max-width: 650px) {
+    flex-direction: column;
   }
 `;
 
@@ -92,6 +100,10 @@ const Price = styled.div`
     width: 2.4rem;
     color: currentColor !important;
   }
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+  }
 `;
 
 const Footer = styled.footer`
@@ -99,6 +111,10 @@ const Footer = styled.footer`
   font-size: 1.2rem;
   color: var(--color-grey-500);
   text-align: right;
+
+  @media (max-width: 650px) {
+    text-align: center;
+  }
 `;
 
 // A purely presentational component

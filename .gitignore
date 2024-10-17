@@ -9,6 +9,10 @@ lerna-debug.log*
 
 node_modules
 supabase.js
+Uploader.jsx
+data-bookings.js
+data-cabins.js
+data-guests.js
 dist
 dist-ssr
 *.local
