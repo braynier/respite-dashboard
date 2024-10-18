@@ -15,6 +15,7 @@ const StyledHeader = styled.header`
   @media (max-width: 1180px) {
     grid-row: 1;
     grid-column: 2;
+    border-bottom: none;
   }
 
   @media (max-width: 768px) {

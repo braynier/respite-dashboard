@@ -91,12 +91,14 @@ const HamburgerButton = styled.button`
 const HamburgerMenu = styled.div`
   display: none;
   position: fixed;
-  top: 10vh;
-  right: 0;
+  top: 6.1rem;
+  left: 0;
   width: 30vw;
   height: 50vh;
-  border: 1px solid var(--color-grey-100);
-  background-color: var(--color-grey-0);
+  z-index: 999;
+  border: 1px solid var(--color-grey-200);
+  border-top: none;
+  background-color: var(--color-grey-50);
   padding: 3.2rem 2.4rem;
 
   & ul {
@@ -116,6 +118,11 @@ function MainNav() {
 
   function handleToggle() {
     setIsopen(!isOpen);
+  }
+
+  function handleClose() {
+    console.log("Clicked the nav link");
+    setIsopen(false);
   }
 
   return (
@@ -156,28 +163,28 @@ function MainNav() {
         <HamburgerMenu>
           <NavList>
             <li>
-              <StyledNavLink to="/dashboard">
+              <StyledNavLink to="/dashboard" onClick={handleClose}>
                 <HiOutlineHome />
                 <span>Home</span>
               </StyledNavLink>
             </li>
             <li>
-              <StyledNavLink to="/bookings">
+              <StyledNavLink to="/bookings" onClick={handleClose}>
                 <HiOutlineCalendarDays /> Bookings
               </StyledNavLink>
             </li>
             <li>
-              <StyledNavLink to="/cabins">
+              <StyledNavLink to="/cabins" onClick={handleClose}>
                 <HiOutlineHomeModern /> Cabins
               </StyledNavLink>
             </li>
             <li>
-              <StyledNavLink to="/users">
+              <StyledNavLink to="/users" onClick={handleClose}>
                 <HiOutlineUsers /> Users
               </StyledNavLink>
             </li>
             <li>
-              <StyledNavLink to="/settings">
+              <StyledNavLink to="/settings" onClick={handleClose}>
                 <HiOutlineCog6Tooth /> Settings
               </StyledNavLink>
             </li>
