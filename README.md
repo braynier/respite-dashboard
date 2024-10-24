@@ -1,6 +1,6 @@
-# 🚀 Professional Application
+# 🚀 Website Dashboard
 
-Welcome to **Professional Application**, a feature-rich and modern web app designed for professionals. Built using advanced **React Query** for data fetching, **Styled Components** for theming, and **Supabase** for backend services, this app leverages cutting-edge technologies and patterns to deliver an efficient and scalable user experience.
+Welcome to **Respite Website dashboard**, a feature-rich and modern web app designed to provide website management. Built using advanced **React Query** for data fetching, **Styled Components** for theming, and **Supabase** for backend services, this app leverages cutting-edge technologies and patterns to deliver an efficient and scalable user experience.
 
 ## 🖥️ Responsive Design
 
@@ -11,6 +11,10 @@ The Professional Application is fully responsive and designed to look great on a
 - **☑️ Desktop View** : Efficient layout for maximum productivity.
 - **☑️ Tablet View** : Compact interface retaining all functionality.
 - **☑️ Mobile View** : Sleek, easy-to-navigate design for on-the-go use.
+
+## 🌐 Live Demo
+
+🔗 **[Live Demo](https://respite-dashboard.netlify.app/)** – Check out the live version of the app to see it in action!
 
 ## 🚀 Features
 
